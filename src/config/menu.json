@@ -1,0 +1,17 @@
+{
+  "footer": [],
+  "main": [
+    {
+      "name": "Inicio",
+      "url": "/"
+    },
+    {
+      "name": "Acerca de",
+      "url": "/about"
+    },
+    {
+      "name": "Contacto",
+      "url": "/contact"
+    }
+  ]
+}

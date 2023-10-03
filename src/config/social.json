@@ -1,0 +1,19 @@
+{
+  "main": [
+    {
+      "icon": "FaFacebook",
+      "link": "https://www.facebook.com/",
+      "name": "facebook"
+    },
+    {
+      "icon": "FaInstagram",
+      "link": "https://instagram.com/",
+      "name": "instagram"
+    },
+    {
+      "icon": "FaWhatsapp",
+      "link": "https://www.whatsapp.com/",
+      "name": "whatsapp"
+    }
+  ]
+}

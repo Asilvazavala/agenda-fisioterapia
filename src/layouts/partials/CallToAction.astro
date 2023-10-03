@@ -1,0 +1,36 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import Accordion from "@/shortcodes/Accordion";
+import { Image } from "astro:assets";
+const { call_to_action } = Astro.props;
+---
+
+{
+    <section class="mb-28">
+      <div class="container">
+        <div class="rounded-xl bg-theme-light px-4 py-16 dark:bg-darkmode-theme-light xl:p-12">
+          <h1 class="mb-4 text-center">¿Tienes alguna pregunta?</h1>  
+          <p class="mb-8 text-center">Resolvemos las preguntas más frecuentes sobre nuestros servicios.</p>
+          <Accordion client:load title="¿Qué es fisioterapia?">
+            Es la rama de las ciencias de la salud que busca el desarrollo, mantenimiento y la máxima restauración de la función del cuerpo humano por diferentes herramientas terapéuticas como agentes físicos, técnicas manuales y ejercicio funcional.
+          </Accordion>
+
+          <Accordion client:load title="¿Qué tipo de lesiones pueden tratar?">
+            Todas aquellas en las que se vea afectado el sistema nervioso musculoesquelético: Todas las lesiones deportivas, dolor de espalda y cuello, esguinces y/o torceduras, dolor en muñecas, codos y rodillas. Afectaciones de la columna como hernias de disco, hiperlordosis, latigazo cervical; por nombrar algunas.
+          </Accordion>
+
+          <Accordion client:load title="¿Debo asistir a terapia únicamente cuándo algo me duele o tengo una lesión?">
+            No necesariamente. La prevención es importante. Somos especialistas en la biomecánica del movimiento, por lo que animamos a todos nuestros pacientes a mejorar sus patrones de movimiento y evitar lesiones mejorando la utilización de sus propios cuerpos.
+          </Accordion>
+
+          <Accordion client:load title="¿Qué debo esperar en la primera sesión?">
+            Dedicamos parte del tiempo de la primera sesión a realizar una evaluación tanto funcional como física de cada caso en específico. Esta valoración consta de una entrevista enfocada a conocer sobre la condición física actual de cada paciente, además de brindar información que pueda ser importante durante el proceso de Fisioterapia. Posteriormente se realiza la evaluación física, que tiene el objetivo de encontrar el origen o la causa de la condición o padecimiento actual del paciente. En esta primera sesión, se iniciará también con el tratamiento.
+          </Accordion>
+
+          <Accordion client:load title="¿Debo de asistir un número de sesiones específicas? (5, sesiones, 10 sesiones por ejemplo)">
+            No. Tenemos claro que la mejoría del paciente no se da por el número de sesiones tomadas sino por los cambios biofisiológicos que se generan en el organismo. Tenemos casos en los que el paciente se presenta hasta por 3 sesiones únicamente.
+          </Accordion>
+        </div>
+      </div>
+    </section>
+}

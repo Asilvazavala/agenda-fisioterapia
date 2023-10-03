@@ -1,0 +1,42 @@
+{
+  "disqus": {
+    "enable": true,
+    "settings": {},
+    "shortname": "themefisher-template"
+  },
+  "metadata": {
+    "meta_author": "zeon.studio",
+    "meta_description": "astro and tailwind boilerplate",
+    "meta_image": "/images/og-image.png"
+  },
+  "navigation_button": {
+    "enable": true,
+    "label": "Reservar cita",
+    "link": "https://github.com/zeon-studio/astroplate"
+  },
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Diseñado y desarrollado por [Antonio Silva](https://as-work.vercel.app)"
+  },
+  "settings": {
+    "blog_folder": "blog",
+    "default_theme": "system",
+    "pagination": 2,
+    "search": true,
+    "sticky_header": true,
+    "summary_length": 200,
+    "theme_switcher": true
+  },
+  "site": {
+    "base_path": "/",
+    "base_url": "https://astroplate.netlify.app",
+    "favicon": "/images/logo-Fisio.png",
+    "logo": "/images/logo-Fisio.png",
+    "logo_darkmode": "/images/logo-Fisio.png",
+    "logo_height": "50",
+    "logo_text": "Astroplate",
+    "logo_width": "80",
+    "title": "Clínica de Fisioterapia y Rehabilitación",
+    "trailing_slash": false
+  }
+}

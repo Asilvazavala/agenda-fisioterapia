@@ -1,0 +1,64 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getEntryBySlug } from "astro:content";
+
+const contact = await getEntryBySlug("contact", "-index");
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image } = contact.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto md:col-10 lg:col-6">
+          <form action={contact_form_action} method="POST">
+            <div class="mb-6">
+              <label for="name" class="form-label">
+                Nombre <span class="text-cyan-700">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Juan Peréz"
+                type="text"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="email" class="form-label">
+                Correo <span class="text-cyan-700">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="tu@correo.com"
+                type="email"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="message" class="form-label">
+                Comentario <span class="text-cyan-700">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                placeholder="Escribe tu comentario..."
+                rows="8"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-lg inline-block w-full">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
