@@ -91,7 +91,7 @@ const { pathname } = Astro.url;
               <li class="nav-item">
                 <a
                   href={menu.url}
-                  class={`nav-link block ${
+                  class={`nav-link block hover:text-black dark:hover:text-white ${
                     (pathname === `${menu.url}/` || pathname === menu.url) &&
                     "active"
                   }`}
@@ -107,7 +107,7 @@ const { pathname } = Astro.url;
         navigation_button.enable && (
           <li class="mt-4 inline-block lg:hidden">
             <a
-              class="btn  btn-sm"
+              class="btn btn-sm"
               href={navigation_button.link}
             >
               {navigation_button.label}

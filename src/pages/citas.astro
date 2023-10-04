@@ -1,0 +1,11 @@
+---
+import Base from "@/layouts/Base.astro";
+import Calendar from '@/shortcodes/Calendar'
+---
+
+<Base title={`Citas`}>
+  <Calendar 
+    client:visible 
+    transition:persist
+  />
+</Base>

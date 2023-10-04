@@ -8,7 +8,7 @@ lesiones, enfermedades, dolores crónicos y terapia física.<br><b>Agenda tu cit
   button:
     enable: true
     label: "Reservar cita"
-    link: "https://github.com/zeon-studio/astroplate"
+    link: "/citas"
 
 # Features
 features:

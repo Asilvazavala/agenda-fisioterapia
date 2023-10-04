@@ -12,7 +12,7 @@
   "navigation_button": {
     "enable": true,
     "label": "Reservar cita",
-    "link": "https://github.com/zeon-studio/astroplate"
+    "link": "/citas"
   },
   "params": {
     "contact_form_action": "#",
