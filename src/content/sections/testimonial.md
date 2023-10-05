@@ -5,7 +5,7 @@ description: "No confíe sólo en nuestra palabra: ¡Escuche a algunos de nuestr
 
 # Testimonials
 testimonials:
-  - name: "Juan Perez"
+  - name: "Juan Pérez"
     designation: "18/08/23"
     avatar: "/images/avatar-hombre.jpg"
     content: "Super recomendado, todas las fisioterapeutas son excelentes personas me han ayudado mucho."
