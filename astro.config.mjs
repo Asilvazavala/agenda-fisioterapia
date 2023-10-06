@@ -7,7 +7,7 @@ import { defineConfig, squooshImageService } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
-
+import { exampleRemarkPlugin } from './example-remark-plugin.mjs';
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
@@ -26,9 +26,9 @@ export default defineConfig({
     imports: ["@/shortcodes/Button", "@/shortcodes/Accordion", "@/shortcodes/Notice", "@/shortcodes/Video", "@/shortcodes/Youtube", "@/shortcodes/Tabs", "@/shortcodes/Tab"]
   }), mdx()],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, {
+    remarkPlugins: [remarkToc, [remarkCollapse, [exampleRemarkPlugin, {
       test: "Table of contents"
-    }]],
+    }]]],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true
