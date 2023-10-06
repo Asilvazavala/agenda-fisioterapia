@@ -2,7 +2,7 @@
 title: "¡Hola, somos el equipo de fisioterapia!"
 meta_title: "About"
 description: "this is meta description"
-image: "/images/avatar-equipo-fisio.jpg"
+image: "/images/avatar-equipo-fisio.webp"
 draft: false
 ---
 

@@ -7,16 +7,16 @@ const Input: React.FC = ({
   value='',
   onChange='',
   err='',
-  input=''
+  input='',
 }) => {
   return (
-    <article className="mb-7 flex flex-col items-start relative">
+    <article className="mb-5 lg:mb-7 flex flex-col items-start relative">
       <label htmlFor={name} className="form-label mb-0 dark:text-black">
         {label}
       </label>
       <input
         name={name}
-        className="form-input bg-white border border-solid border-black dark:bg-white py-2 dark:text-black"
+        className='form-input px-2 w-56 bg-white border border-solid border-black dark:bg-white py-2 dark:text-black'
         placeholder={placeholder}
         type={type}
         autoFocus={autofocus}

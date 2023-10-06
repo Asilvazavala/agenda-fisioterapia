@@ -5,8 +5,10 @@ const useValidations: React.FC = () => {
   const [err, setErr]= useState({});
   
   const[input, setInput]= useState({
-    name: '',
-    email: ''
+    user_name: '',
+    user_email: '',
+    user_phone: '',
+    user_description: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

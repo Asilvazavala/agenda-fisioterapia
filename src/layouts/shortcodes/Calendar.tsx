@@ -9,9 +9,11 @@ const MyDatePicker: React.FC = () => {
   const currentDate = new Date();
   const daysToValidate = 20;
   const limitDate = addDays(currentDate, daysToValidate);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+  const tomorrow = addDays(new Date(), 1); 
+  const [selectedDate, setSelectedDate] = useState<Date | null>(tomorrow);
 
   const isDateValid = isBefore(selectedDate || currentDate, currentDate) && !isSameDay(selectedDate || currentDate, currentDate);
+  const isCurrentDate = isSameDay(selectedDate || currentDate, currentDate);
   const isDateValidPlus20 = isAfter(selectedDate || currentDate, addDays(currentDate, daysToValidate));
   const fechaEspanol = format(selectedDate, 'EEEE, dd/MM/yyyy', { locale: es });
 
@@ -43,11 +45,15 @@ const MyDatePicker: React.FC = () => {
             <p className="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">Esta fecha ya pasó.</p>
           )}
 
+          {isCurrentDate && (
+            <p className="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">Citas agotadas para hoy.</p>
+          )}
+
           {isDateValidPlus20 && (
             <p className="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">La fecha límite es: {format(limitDate, 'EEEE, dd/MM/yyyy', { locale: es })}</p>
           )}
 
-          {!isDateValid && !isDateValidPlus20 && (
+          {!isDateValid && !isDateValidPlus20 && !isCurrentDate && (
             <div>
               <h3 className='mb-2 text-center'>Selecciona la hora</h3>
               <TableCitas 
