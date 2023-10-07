@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format, isBefore, addDays, isAfter, isSameDay } from 'date-fns';
-import es from 'date-fns/locale/es';
 import TableCitas from '@/shortcodes/TableCitas';
 
 const MyDatePicker: React.FC = () => {
@@ -15,7 +14,7 @@ const MyDatePicker: React.FC = () => {
   const isDateValid = isBefore(selectedDate || currentDate, currentDate) && !isSameDay(selectedDate || currentDate, currentDate);
   const isCurrentDate = isSameDay(selectedDate || currentDate, currentDate);
   const isDateValidPlus20 = isAfter(selectedDate || currentDate, addDays(currentDate, daysToValidate));
-  const fechaEspanol = format(selectedDate, 'EEEE, dd/MM/yyyy', { locale: es });
+  const fechaEspanol = format(selectedDate, 'EEEE, dd/MM/yyyy');
 
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
