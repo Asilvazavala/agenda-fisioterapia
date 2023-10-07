@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format, isBefore, addDays, isAfter, isSameDay } from 'date-fns';
-import { es } from 'date-fns/locale';
+import es from 'date-fns/locale/es';
 import TableCitas from '@/shortcodes/TableCitas';
 
 const MyDatePicker: React.FC = () => {
