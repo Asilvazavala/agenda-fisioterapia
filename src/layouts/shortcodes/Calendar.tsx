@@ -57,6 +57,7 @@ const MyDatePicker: React.FC = () => {
             <div>
               <h3 className='mb-2 text-center'>Selecciona la hora</h3>
               <TableCitas 
+                client:visible
                 fecha={selectedDate}
                 fechaEspanol={fechaEspanol}
               />
