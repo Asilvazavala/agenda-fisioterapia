@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format, isBefore, addDays, isAfter, isSameDay } from 'date-fns';
-import { es } from 'date-fns/locale';
 import TableCitas from '@/shortcodes/TableCitas';
 
 const MyDatePicker: React.FC = () => {
@@ -15,7 +14,7 @@ const MyDatePicker: React.FC = () => {
   const isDateValid = isBefore(selectedDate || currentDate, currentDate) && !isSameDay(selectedDate || currentDate, currentDate);
   const isCurrentDate = isSameDay(selectedDate || currentDate, currentDate);
   const isDateValidPlus20 = isAfter(selectedDate || currentDate, addDays(currentDate, daysToValidate));
-  const fechaEspanol = selectedDate ? format(selectedDate, 'EEEE, dd/MM/yyyy', { locale: es }) : "";
+  const fechaEspanol = selectedDate ? format(selectedDate, 'EEEE, dd/MM/yyyy') : "";
 
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
@@ -50,7 +49,7 @@ const MyDatePicker: React.FC = () => {
           )}
 
           {isDateValidPlus20 && (
-            <p className="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">La fecha límite es: {format(limitDate, 'EEEE, dd/MM/yyyy', { locale: es })}</p>
+            <p className="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">La fecha límite es: {format(limitDate, 'EEEE, dd/MM/yyyy')}</p>
           )}
 
           {!isDateValid && !isDateValidPlus20 && !isCurrentDate && (
