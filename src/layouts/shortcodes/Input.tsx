@@ -1,13 +1,27 @@
-const Input: React.FC = ({
+import React from 'react';
+
+interface InputProps {
+  name: string;
+  label: string;
+  placeholder: string;
+  type: string;
+  autofocus?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  err: string;
+  input: string;
+}
+
+const Input: React.FC<InputProps>= ({
   name='',
   label='',
   placeholder='',
   type='',
-  autofocus='',
+  autofocus=false,
   value='',
-  onChange='',
-  err='',
-  input='',
+  onChange,
+  err,
+  input,
 }) => {
   return (
     <article className="mb-5 lg:mb-7 flex flex-col items-start relative">

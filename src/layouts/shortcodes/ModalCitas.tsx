@@ -1,8 +1,20 @@
 import useValidations from '../../hooks/useValidations';
 import useNotifications from '../../hooks/useNotifications';
 import Input from './Input';
+import React from 'react';
 
-const ModalCitas: React.FC = ({ 
+interface ModalCitasProps {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  titulo: string; 
+  user_fecha: string;
+  user_hora: string; 
+  textButton1: string; 
+  textButton2: string; 
+  handleFunction: (arg: any) => void;
+  formRef: React.RefObject<HTMLFormElement>;
+}
+
+const ModalCitas: React.FC<ModalCitasProps> = ({ 
   setOpenModal, 
   titulo='titulo', 
   user_fecha='',
@@ -23,7 +35,7 @@ const ModalCitas: React.FC = ({
       notificationError('Revisa los campos a llenar');
       return
     } else {
-      handleFunction(e);
+        handleFunction(e);
       }
   }
 

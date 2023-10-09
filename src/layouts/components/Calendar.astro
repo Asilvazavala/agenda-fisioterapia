@@ -2,23 +2,67 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { format, isBefore, addDays, isAfter, isSameDay } from 'date-fns';
+import { es } from 'date-fns/locale';
+import TableCitas from '@/shortcodes/TableCitas';
 
-const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+const currentDate = new Date();
+const daysToValidate = 20;
+const limitDate = addDays(currentDate, daysToValidate);
+const tomorrow = addDays(new Date(), 1); 
+const [selectedDate, setSelectedDate] = useState<Date | null>(tomorrow);
+
+const isDateValid = isBefore(selectedDate || currentDate, currentDate) && !isSameDay(selectedDate || currentDate, currentDate);
+const isCurrentDate = isSameDay(selectedDate || currentDate, currentDate);
+const isDateValidPlus20 = isAfter(selectedDate || currentDate, addDays(currentDate, daysToValidate));
+const fechaEspanol = format(selectedDate, 'EEEE, dd/MM/yyyy', { locale: es });
 
 const handleDateChange = (date: Date | null) => {
   setSelectedDate(date);
 };
 ---
 
-<div>
-  <h2>Selecciona una fecha:</h2>
-  <DatePicker
-    selected={selectedDate}
-    onChange={handleDateChange}
-    dateFormat="dd/MM/yyyy" 
-    isClearable 
-  />
-  {selectedDate && (
-    <p>Has seleccionado: {selectedDate.toDateString()}</p>
-  )}
-</div>
+<section class="section-sm lg:px-10 -mt-12 lg:-mt-4">
+  <main class="container flex flex-col lg:flex-row lg:gap-20 rounded-xl bg-theme-light dark:bg-darkmode-theme-light py-10">
+    <article class="flex flex-col justify-center items-center lg:items-start mb-10 lg:ml-10">
+      <h3 class='mb-2'>Selecciona la fecha</h3>
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleDateChange}
+        inline
+      />
+       {selectedDate && (
+        <div>
+          <p>Has seleccionado:</p>
+          <p class='font-bold'>{fechaEspanol}</p>
+        </div>
+      )}
+
+    </article>
+
+    <article class='flex flex-col justify-center items-center lg:justify-start'>
+      {isDateValid && (
+        <p class="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">Esta fecha ya pasó.</p>
+      )}
+
+      {isCurrentDate && (
+        <p class="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">Citas agotadas para hoy.</p>
+      )}
+
+      {isDateValidPlus20 && (
+        <p class="text-red-700 bg-red-200 rounded-full px-3 py-1 lg:my-auto">La fecha límite es: {format(limitDate, 'EEEE, dd/MM/yyyy', { locale: es })}</p>
+      )}
+
+      {!isDateValid && !isDateValidPlus20 && !isCurrentDate && (
+        <div>
+          <h3 class='mb-2 text-center'>Selecciona la hora</h3>
+          <TableCitas 
+            client:visible
+            fecha={selectedDate}
+            fechaEspanol={fechaEspanol}
+          />
+        </div>
+      )}
+    </article>
+  </main>
+</section>

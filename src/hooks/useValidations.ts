@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Validations } from '../layouts/helpers/Validations'
+import { ErrorObj } from '../types/index';
 
-const useValidations: React.FC = () => {
-  const [err, setErr]= useState({});
+const useValidations = () => {
+  const [err, setErr]= useState<ErrorObj>({
+    user_name: '',
+    user_email: '',
+    user_phone: '',
+    user_description: ''
+  });
   
   const[input, setInput]= useState({
     user_name: '',

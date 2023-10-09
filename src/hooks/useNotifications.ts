@@ -1,46 +1,52 @@
-import React from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
-const useNotifications: React.FC = () => {
-  
-  const notificationError = (notification) => {
-    toast.error(notification, {
+type NotificationType = 'error' | 'success';
+
+const useNotifications = () => {
+  const notification = (type: NotificationType, message: string) => {
+    toast[type](message, {
       duration: 3000,
       position: 'top-center',
       style: {
-        background: '#fff',
-        color: 'black'
-      }
-    })
-  }
+        background: type === 'success' ? '#16565D' : '#fff',
+        color: type === 'success' ? 'white' : 'black',
+      },
+    });
+  };
 
-  const notificationSuccess = (notification) => {
-    toast.success(notification, {
-      duration: 3000,
-      position: 'top-center',
-      style: {
-        background: '#16565D',
-        color: 'white'
-      }
-    })
-  }
+  const notificationError = (message: string) => {
+    notification('error', message);
+  };
 
-  const notificationLoading = (myPromise) => {
-    toast.loading(myPromise, {
-      duration: 3000,
-      position: 'top-center',
-      loading: 'Loading',
-      success: 'Got data',
-      error: 'Error fetching'
-    })
-  }
+  const notificationSuccess = (message: string) => {
+    notification('success', message);
+  };
+
+  const notificationLoading = (promise: Promise<any>) => {
+    return toast.promise(
+      promise,
+      {
+        loading: 'Loading',
+        success: 'Got data',
+        error: 'Error fetching',
+      },
+      {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          background: '#fff',
+          color: 'black',
+        },
+      }
+    );
+  };
 
   return {
     Toaster,
     notificationSuccess,
     notificationError,
-    notificationLoading
-  }
+    notificationLoading,
+  };
 };
 
 export default useNotifications;

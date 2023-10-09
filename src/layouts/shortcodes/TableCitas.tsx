@@ -1,9 +1,14 @@
-import React, { useState, useRef, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalCitas from './ModalCitas';
 import useNotifications from '../../hooks/useNotifications';
 import emailjs from '@emailjs/browser';
 
-const MyTable: React.FC<{fecha: Date}> = ({ fecha, fechaEspanol }) => {
+interface MyTableProps {
+  fecha: Date;
+  fechaEspanol: string;
+}
+
+const MyTable: React.FC<MyTableProps> = ({ fecha, fechaEspanol }) => {
   const { notificationSuccess, Toaster } = useNotifications();
 
   const [openModal, setOpenModal] = useState(false);
@@ -33,17 +38,23 @@ const MyTable: React.FC<{fecha: Date}> = ({ fecha, fechaEspanol }) => {
     setOpenModal(true);
   };
 
-  const form = useRef();
+  const form = React.useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_ilbj5hc', 'template_wkzbw18', form.current, 'XG4NgA-AuhcF9dzP4')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+    if (form.current) {
+      emailjs
+        .sendForm('service_ilbj5hc', 'template_wkzbw18', form.current, 'XG4NgA-AuhcF9dzP4')
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -85,16 +96,17 @@ const MyTable: React.FC<{fecha: Date}> = ({ fecha, fechaEspanol }) => {
         ))}
       </tbody>
      {
-      openModal && <ModalCitas 
-        setOpenModal={setOpenModal}
-        titulo='Confirma tu cita' 
-        user_fecha={fechaEspanol}
-        user_hora={selectedHour} 
-        textButton1='Confirmar' 
-        textButton2='Cancelar' 
-        handleFunction={handleSubmit}
-        formRef={form}
-      />
+      openModal && 
+        <ModalCitas 
+          setOpenModal={setOpenModal}
+          titulo='Confirma tu cita' 
+          user_fecha={fechaEspanol}
+          user_hora={selectedHour} 
+          textButton1='Confirmar' 
+          textButton2='Cancelar' 
+          handleFunction={handleSubmit}
+          formRef={form}
+        />
      }
     </table>
   );

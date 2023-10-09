@@ -1,7 +1,7 @@
-export const Validations = (input: string) => {
+export const Validations = (input: Partial<ErrorObj>): ErrorObj => {
   const emailRegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   
-  let err = {};
+  let err: ErrorObj = {};
 
   if (!input.user_name) {
     err.user_name = 'Escribe un nombre';
