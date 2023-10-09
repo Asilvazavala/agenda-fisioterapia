@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format, isBefore, addDays, isAfter, isSameDay } from 'date-fns';
 import TableCitas from '@/shortcodes/TableCitas';
 
-const MyDatePicker: React.FC = () => {
+const Calendar: React.FC = () => {
   const currentDate = new Date();
   const daysToValidate = 20;
   const limitDate = addDays(currentDate, daysToValidate);
@@ -67,4 +67,4 @@ const MyDatePicker: React.FC = () => {
   );
 };
 
-export default MyDatePicker;
+export default Calendar;

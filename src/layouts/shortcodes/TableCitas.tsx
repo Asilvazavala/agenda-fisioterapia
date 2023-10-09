@@ -3,12 +3,12 @@ import ModalCitas from './ModalCitas';
 import useNotifications from '../../hooks/useNotifications';
 import emailjs from '@emailjs/browser';
 
-interface MyTableProps {
+interface TableCitasProps {
   fecha: Date;
   fechaEspanol: string;
 }
 
-const MyTable: React.FC<MyTableProps> = ({ fecha, fechaEspanol }) => {
+const TableCitas: React.FC<TableCitasProps> = ({ fecha, fechaEspanol }) => {
   const { notificationSuccess, Toaster } = useNotifications();
 
   const [openModal, setOpenModal] = useState(false);
@@ -112,4 +112,4 @@ const MyTable: React.FC<MyTableProps> = ({ fecha, fechaEspanol }) => {
   );
 };
 
-export default MyTable;
+export default TableCitas;
