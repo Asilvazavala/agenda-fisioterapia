@@ -28,7 +28,7 @@ const ModalCitas: React.FC<ModalCitasProps> = ({
   const { input, handleChange, err } = useValidations();
   const { notificationError, Toaster } = useNotifications();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
     e.preventDefault();
 
     if (Object.keys(err).length > 0 || !input.user_name) {
@@ -50,13 +50,13 @@ const ModalCitas: React.FC<ModalCitasProps> = ({
         <main className="flex flex-col justify-center items-center text-lg text-center text-black lg:mb-2">
           <form ref={formRef} className="lg:flex gap-x-7 lg:flex-wrap lg:max-w-lg lg:justify-center">
             <Input name='user_name' label='Nombre' placeholder='Juan Pérez' type='text' autofocus={true}
-              value={input.user_name} onChange={(e) => handleChange(e)} err={err.user_name} input={input} />
+              value={input.user_name} onChange={(e) => handleChange(e)} err={err.user_name} />
 
             <Input name='user_email' label='Correo' placeholder='tu@correo.com' type='email' autofocus={false}
-              value={input.user_email} onChange={(e) => handleChange(e)} err={err.user_email} input={input} />
+              value={input.user_email} onChange={(e) => handleChange(e)} err={err.user_email} />
 
             <Input name='user_phone' label='Teléfono' placeholder='456123456' type='number' autofocus={false}
-              value={input.user_phone} onChange={(e) => handleChange(e)} err={err.user_phone} input={input} />
+              value={input.user_phone} onChange={(e) => handleChange(e)} err={err.user_phone} />
             
             <article className="mb-3 lg:mb-7 flex flex-col items-start relative">
               <label htmlFor='description' className="form-label mb-0 dark:text-black">

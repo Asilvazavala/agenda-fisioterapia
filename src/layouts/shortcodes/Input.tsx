@@ -8,8 +8,7 @@ interface InputProps {
   autofocus?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  err: string;
-  input: string;
+  err: string | undefined;
 }
 
 const Input: React.FC<InputProps>= ({
@@ -21,7 +20,6 @@ const Input: React.FC<InputProps>= ({
   value='',
   onChange,
   err,
-  input,
 }) => {
   return (
     <article className="mb-5 lg:mb-7 flex flex-col items-start relative">
@@ -37,8 +35,8 @@ const Input: React.FC<InputProps>= ({
         value={value}
         onChange={onChange}
       />
-        <small className={err || !input ? 'text-red-600 absolute mt-[4.2rem]' : ''}>
-          {err || !input 
+        <small className={err ? 'text-red-600 absolute mt-[4.2rem]' : ''}>
+          {err  
             ? <span>{err}</span> 
             : null }
         </small>
