@@ -4,7 +4,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import useDates from '../../hooks/useDates';
 import TableCitas from '@/shortcodes/TableCitas';
 
-const Calendar: React.FC = () => {
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
+const MyCalendar: React.FC = () => {
   const { 
     formattedLimitDate,
     selectedDate,
@@ -21,10 +25,9 @@ const Calendar: React.FC = () => {
         <article className="flex flex-col justify-center items-center lg:items-start mb-10 lg:ml-10">
           <h3 className='mb-2'>Selecciona la fecha</h3>
           <Suspense fallback='Cargando...'>
-            <DatePicker
-              selected={selectedDate}
+            <Calendar
+              value={selectedDate}
               onChange={handleDateChange}
-              inline
             />
           </Suspense>
            {selectedDate && (
@@ -64,4 +67,4 @@ const Calendar: React.FC = () => {
   );
 };
 
-export default Calendar;
+export default MyCalendar;
