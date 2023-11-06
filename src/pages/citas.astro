@@ -1,8 +1,17 @@
 ---
 import Base from "@/layouts/Base.astro";
 import Calendar from '@/shortcodes/Calendar'
+import { getEntryBySlug } from "astro:content";
+
+const about = await getEntryBySlug("about", "-index");
+const { description, image } = about.data;
 ---
 
-<Base title={`Citas`}>
+<Base 
+  title="Citas"
+  meta_title="Acerca de"
+  description={description}
+  image={image}
+>
   <!-- <Calendar client:visible/> -->
 </Base>
