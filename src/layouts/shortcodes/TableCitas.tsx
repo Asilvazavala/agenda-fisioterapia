@@ -87,7 +87,7 @@ const TableCitas: React.FC<TableCitasProps> = ({ fecha, fechaEspanol }) => {
             >
               <td 
                 onClick={() => handleOpenModal(row.hora)}
-                className="underline hover:text-primary dark:hover:text-cyan-700 cursor-pointer">
+                className="underline font-bold hover:text-primary dark:hover:text-cyan-700 transition-colors cursor-pointer">
                 {row.apartar}
               </td>
               <td>{row.fecha}</td>
