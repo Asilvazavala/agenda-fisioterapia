@@ -1,7 +1,5 @@
 import React from 'react';
 import DatePicker from './DatePicker'
-// import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import useDates from '../../hooks/useDates';
 import TableCitas from '@/shortcodes/TableCitas';
 
