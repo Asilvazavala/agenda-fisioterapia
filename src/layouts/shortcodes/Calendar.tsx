@@ -1,12 +1,8 @@
 import React, { Suspense } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import useDates from '../../hooks/useDates';
 import TableCitas from '@/shortcodes/TableCitas';
-
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
 
 const MyCalendar: React.FC = () => {
   const { 
@@ -27,7 +23,6 @@ const MyCalendar: React.FC = () => {
           <Suspense fallback='Cargando...'>
             <Calendar
               value={selectedDate}
-              onChange={handleDateChange}
             />
           </Suspense>
            {selectedDate && (
