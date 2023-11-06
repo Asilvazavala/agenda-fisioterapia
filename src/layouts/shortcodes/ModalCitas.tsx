@@ -85,6 +85,7 @@ const ModalCitas: React.FC<ModalCitasProps> = ({
                   name='user_fecha'
                   className="form-input bg-gray-300 dark:bg-gray-400 dark:text-black py-2 cursor-not-allowed"
                   value={user_fecha}
+                  readOnly
                 />
               </div>
 
@@ -96,6 +97,7 @@ const ModalCitas: React.FC<ModalCitasProps> = ({
                   name='user_hora'
                   className="form-input bg-gray-300 dark:bg-gray-400 dark:text-black py-2 cursor-not-allowed"
                   value={user_hora}
+                  readOnly
                 />
               </div>
             </article>

@@ -67,48 +67,50 @@ const TableCitas: React.FC<TableCitasProps> = ({ fecha, fechaEspanol }) => {
   };
 
   return (
-    <table className='flex flex-col'>
+    <main>
       <Toaster />
-      <thead>
-        <tr className='flex gap-12 lg:gap-36 bg-primary dark:bg-cyan-700 text-white dark:text-black px-1 lg:px-6'>
-          <th className="align-middle">Cita</th>
-          <th className="align-middle">Fecha</th>
-          <th className="align-middle">Hora</th>
-          <th className="align-middle">Atiende</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tableData.map((row, index) => (
-          <tr 
-            className={`flex gap-5 lg:gap-28 px-1 lg:px-6 py-2 lg:py-1 text-black ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`} 
-            key={index}
-            onClick={() => setSelectedTime(row.hora)}
-          >
-            <td 
-              onClick={() => handleOpenModal(row.hora)}
-              className="underline hover:text-primary dark:hover:text-cyan-700 cursor-pointer">
-              {row.apartar}
-            </td>
-            <td>{row.fecha}</td>
-            <td>{row.hora}</td>
-            <td>{row.atiende}</td>
+      <table className='flex flex-col'>
+        <thead>
+          <tr className='flex gap-12 lg:gap-36 bg-primary dark:bg-cyan-700 text-white dark:text-black px-1 lg:px-6'>
+            <th className="align-middle">Cita</th>
+            <th className="align-middle">Fecha</th>
+            <th className="align-middle">Hora</th>
+            <th className="align-middle">Atiende</th>
           </tr>
-        ))}
-      </tbody>
-     {
-      openModal && 
-        <ModalCitas 
-          setOpenModal={setOpenModal}
-          titulo='Confirma tu cita' 
-          user_fecha={fechaEspanol}
-          user_hora={selectedHour} 
-          textButton1='Confirmar' 
-          textButton2='Cancelar' 
-          handleFunction={handleSubmit}
-          formRef={form}
-        />
-     }
-    </table>
+        </thead>
+        <tbody>
+          {tableData.map((row, index) => (
+            <tr 
+              className={`flex gap-5 lg:gap-28 px-1 lg:px-6 py-2 lg:py-1 text-black ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`} 
+              key={index}
+              onClick={() => setSelectedTime(row.hora)}
+            >
+              <td 
+                onClick={() => handleOpenModal(row.hora)}
+                className="underline hover:text-primary dark:hover:text-cyan-700 cursor-pointer">
+                {row.apartar}
+              </td>
+              <td>{row.fecha}</td>
+              <td>{row.hora}</td>
+              <td>{row.atiende}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {
+        openModal && 
+          <ModalCitas 
+            setOpenModal={setOpenModal}
+            titulo='Confirma tu cita' 
+            user_fecha={fechaEspanol}
+            user_hora={selectedHour} 
+            textButton1='Confirmar' 
+            textButton2='Cancelar' 
+            handleFunction={handleSubmit}
+            formRef={form}
+          />
+      }
+    </main>
   );
 };
 
