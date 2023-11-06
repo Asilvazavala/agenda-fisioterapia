@@ -25,11 +25,11 @@ const Calendar: React.FC = () => {
       <main className="container flex flex-col lg:flex-row lg:gap-20 rounded-xl bg-theme-light dark:bg-darkmode-theme-light py-10">
         <article className="flex flex-col justify-center items-center lg:items-start mb-10 lg:ml-10">
           <h3 className='mb-2'>Selecciona la fecha</h3>
-          <DatePicker
+          {/* <DatePicker
             selected={selectedDate}
             onChange={handleDateChange}
             inline
-          />
+          /> */}
            {selectedDate && (
             <div>
               <p>Has seleccionado:</p>
