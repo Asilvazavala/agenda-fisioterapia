@@ -55,10 +55,10 @@ const Calendar: React.FC = () => {
           {!isDateValid && !isDateValidPlus20 && !isCurrentDate && (
             <div>
               <h3 className='mb-2 text-center'>Selecciona la hora</h3>
-              {/* <TableCitas 
+              <TableCitas 
                 fecha={selectedDate || new Date()}
                 fechaEspanol={fechaEspanol}
-              /> */}
+              />
             </div>
           )}
         </article>

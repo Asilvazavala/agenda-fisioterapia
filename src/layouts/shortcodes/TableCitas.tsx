@@ -95,7 +95,7 @@ const TableCitas: React.FC<TableCitasProps> = ({ fecha, fechaEspanol }) => {
           </tr>
         ))}
       </tbody>
-     {/* {
+     {
       openModal && 
         <ModalCitas 
           setOpenModal={setOpenModal}
@@ -107,7 +107,7 @@ const TableCitas: React.FC<TableCitasProps> = ({ fecha, fechaEspanol }) => {
           handleFunction={handleSubmit}
           formRef={form}
         />
-     } */}
+     }
     </table>
   );
 };
