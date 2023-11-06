@@ -1,5 +1,6 @@
-import React from 'react';
-import DatePicker from './DatePicker'
+import React, { Suspense } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import useDates from '../../hooks/useDates';
 import TableCitas from '@/shortcodes/TableCitas';
 
@@ -19,7 +20,13 @@ const Calendar: React.FC = () => {
       <main className="container flex flex-col lg:flex-row lg:gap-20 rounded-xl bg-theme-light dark:bg-darkmode-theme-light py-10">
         <article className="flex flex-col justify-center items-center lg:items-start mb-10 lg:ml-10">
           <h3 className='mb-2'>Selecciona la fecha</h3>
-          <DatePicker />
+          <Suspense fallback='Cargando...'>
+            <DatePicker
+              selected={selectedDate}
+              onChange={handleDateChange}
+              inline
+            />
+          </Suspense>
            {selectedDate && (
             <div>
               <p>Has seleccionado:</p>
