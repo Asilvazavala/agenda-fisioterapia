@@ -30,12 +30,12 @@ const Calendar: React.FC = () => {
             onChange={handleDateChange}
             inline
           /> */}
-           {selectedDate && (
+           {/* {selectedDate && (
             <div>
               <p>Has seleccionado:</p>
               <p className='font-bold'>{fechaEspanol}</p>
             </div>
-          )}
+          )} */}
 
         </article>
 
