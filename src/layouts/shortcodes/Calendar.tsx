@@ -23,6 +23,7 @@ const MyCalendar: React.FC = () => {
           <Suspense fallback='Cargando...'>
             <Calendar
               value={selectedDate}
+              onChange={handleDateChange}              
             />
           </Suspense>
            {selectedDate && (
