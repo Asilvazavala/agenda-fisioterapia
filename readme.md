@@ -1,42 +1,50 @@
-<h1 align=center>Astro + Tailwind CSS + TypeScript Starter and Boilerplate</h1>
+# Acerca de la Clínica de Fisioterapia
 
-## 🔗 Integrations
+Proyecto creado para reservar citas en la clínica, implementé EmailJS para gestionar las notificaciones por correo, cuenta con modo oscuro/claro, un acordeón y es adaptable a celulares.
 
-- astro/react
-- astro/sitemap
-- astro/tailwind
+Tecnologías: Astro, TypeScript & TailwindCSS.
 
-## 🚀 Getting Started
+👉 Ve el proyecto aquí: [Clínica de Fisioterapia](https://agenda-fisioterapia.vercel.app/)
 
-### 📦 Dependencies
+## 🧞 Comandos básicos
 
-- astro 2.3+
-- node v18+
-- npm v9.5+
-- tailwind v3.3+
+Proyecto creado con:
 
-### 👉 Install Dependencies
-
-```bash
-npm install
+```sh
+npm create astro@latest -- --template basics --tailwind --typescript
 ```
 
-### 👉 Development Command
+Todos los comandos son ejecutados en la raíz del proyecto, desde la terminal:
 
-```bash
-npm run dev
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Comandos de las dependencias
+
+| Command                        | Action                    |
+| :----------------------------- | :------------------------ |
+| `npm install swiper`           | Installs Swiper           |
+| `npm install react-icons`      | Installs react-icons      |
+| `npm install date-fns`         | Installs date-fns         |
+| `npm install react-hot-toast`  | Installs react-hot-toast  |
+| `npm install react-datepicker` | Installs react-datepicker |
+
+Instalar todas las dependencias:
+
+```sh
+npm install swiper react-icons date-fns react-hot-toast react-datepicker
 ```
 
-### 👉 Build Command
+## 🎆 Imágenes del proyecto
 
-```bash
-npm run build
-```
+![logo](https://github.com/Asilvazavala/Astro-Portfolio/blob/f27e9df41230ec6e43c14b41cf33b136cb3f0e03/public/imagenes/Projects/Clinica-fisio.webp)
 
-### 👉 Build and Run With Docker
+![logo](https://github.com/Asilvazavala/My-Portfolio/blob/b022a3409df8c508e85f7981ac9f025e478b0a68/src/imagenes/Mobile/Clinica/clinicaMobile.png)
 
-```bash
-docker build -t astroplate .
-docker run -p 3000:3000 astroplate
-```
-
+![logo](https://github.com/Asilvazavala/My-Portfolio/blob/b022a3409df8c508e85f7981ac9f025e478b0a68/src/imagenes/Mobile/Clinica/clinicaMobile2.png)
